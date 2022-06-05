@@ -94,7 +94,7 @@ app.post("/", async (req, res) => {
 app.post("/delete", async (req, res) => {
   const checkedItemId = req.body.checkbox;
   const listName = req.body.listName;
-  let dates = dates.getDate();
+  let dates = date.getDate();
   if (listName === dates) {
     var deleteItem = ("DELETE FROM items WHERE id = " + checkedItemId);
     db.query(deleteItem, (err, result) => {
