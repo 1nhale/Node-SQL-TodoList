@@ -38,12 +38,12 @@ db.connect(async(err) => {
 
 app.get("/", async (req, res, next) => {
 
-  let day = date.getDay();
+  let dates = date.getDate();
 
   db.query("SELECT * FROM items", (err, result) => {
     if (err) throw err;
     // console.log(result)
-    res.render('list', { listTitle: day, newListItems: result });
+    res.render('list', { listTitle: dates, newListItems: result });
   });
 })
 
@@ -69,10 +69,10 @@ app.post("/", async (req, res) => {
 
   const userItem = req.body.newItem;
   const listName = req.body.list;
-  let day = date.getDay();
+  let dates = date.getDate();
   // console.log(req.body.list);
 
-  if (listName === day) {
+  if (listName === dates) {
     var items = ("INSERT INTO items (item_name) VALUES ('" + userItem + "')")
     db.query(items, (err, result) => {
       if (err) throw err;
@@ -94,8 +94,8 @@ app.post("/", async (req, res) => {
 app.post("/delete", async (req, res) => {
   const checkedItemId = req.body.checkbox;
   const listName = req.body.listName;
-  let day = date.getDay();
-  if (listName === day) {
+  let dates = dates.getDate();
+  if (listName === dates) {
     var deleteItem = ("DELETE FROM items WHERE id = " + checkedItemId);
     db.query(deleteItem, (err, result) => {
       if (err) throw err;

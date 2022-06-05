@@ -12,32 +12,43 @@
 </head>
 
 <body>
-  <section class="vh-100 gradient-custom"">
-          <div class="card-body p-5">
-            <div class="box mb-3" id="heading">
-              <h1>
-                <%= listTitle %>
-              </h1>
-            </div>
-            <form action="/" method="post" class="d-flex justify-content-center align-items-center mb-4 form-outline flex-fill">
-              <input type="text" name="newItem" placeholder="Tasks Need To Be Completed" autocomplete="off" autofocus="true">
-              <button type="submit" name="list" class="btn btn-outline-primary" value=<%=listTitle %>>ADD</button>
-            </form>
-            <div class="box">
-              <% newListItems.forEach((item)=>{ %>
-                <form action="/delete" method="post">
-                  <div class="item">
-                    <input type="checkbox" class="form-check-input me-2" name="checkbox" value="<%= item.id %> " onchange="this.form.submit()">
-                    <p>
-                      <%= item.item_name %>
-                    </p>
+  <section class="vh-100 gradient-custom" style="background-color:#61DCFB">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <!-- <div class="card" style="border-radius: 15px; background-color: #363D47;"> -->
+            <div class="card-body p-5">
+              <div class="box " id="heading">
+                <h1>
+                  <%= listTitle %>
+                </h1>
+              </div>
+              <div class="d-flex flex-row align-items-center">
+                <form action="/" method="post"
+                  class="d-flex justify-content-center align-items-center mb-4 form-outline flex-fill">
+                  <input type="text" name="newItem" placeholder="Add new..."
+                    autocomplete="off" autofocus="true" >
+                  <div>
+                    <button type="submit" name="list" class="btn btn-outline-primary" value='<%=listTitle %>'>ADD</button>
                   </div>
-                  <input type="hidden" name="listName" value="<%= listTitle %>"></input>
                 </form>
-                <%}) %>
-                  
+              </div>
+              <div class="box">
+                <% newListItems.forEach((item)=>{ %>
+                  <form action="/delete" method="post">
+                    <div class="item">
+                      <input type="checkbox" class="form-check-input me-2" name="checkbox" value="<%= item.id %> "
+                        onchange="this.form.submit()">
+                      <p>
+                        <%= item.item_name %>
+                      </p>
+                    </div>
+                    <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+                  </form>
+                  <%}) %>
+
+              </div>
             </div>
-          </div>
   </section>
 
 
