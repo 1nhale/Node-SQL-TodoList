@@ -25,8 +25,8 @@ const db = mysql.createConnection({
 db.connect(async(err) => {
   if (err) throw err;
   console.log("Database Connected...");
-  db.query("CREATE DATABASE IF NOT EXISTS todolist", (err, result) => {
-    if (err) throw err;
+  // db.query("CREATE DATABASE IF NOT EXISTS todolist", (err, result) => {
+  //   if (err) throw err;
   });
   const item = "CREATE TABLE IF NOT EXISTS items (id INT AUTO_INCREMENT PRIMARY KEY ,item_name VARCHAR(255) NOT NULL )";
   db.query(item, (err, result) => {
@@ -34,7 +34,7 @@ db.connect(async(err) => {
       console.log("items generated")
     }
   });
-  });
+  // });
 
 app.get("/", async (req, res, next) => {
 
@@ -113,7 +113,7 @@ app.post("/delete", async (req, res) => {
   }
 })
 
-var listener = app.listen(process.env.PORT, function () {
+var listener = app.listen(process.env.PORT || 3000, function () {
   console.log("Server started on port " + listener.address().port); //listening on port
 });
 
