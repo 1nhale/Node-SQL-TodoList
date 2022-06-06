@@ -5,9 +5,16 @@ html {
   font-family: 'helvetica neue';
 }
 
+body {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
 h1 {
   color: #fff;
   padding: 10px;
+  font-family: -apple-system-headline;
 }
 
 .box {
