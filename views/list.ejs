@@ -27,7 +27,7 @@
                 <form action="/" method="post"
                   class="d-flex justify-content-center align-items-center mb-4 form-outline flex-fill">
                   <input type="text" name="newItem" placeholder="Add new..."
-                    autocomplete="off" autofocus="true" required pattern=".*\S+.*{5,}" title="Please Enter Valid Task" oninvalid="this.setCustomValidity('Enter The Task To Be Completed')"
+                    autocomplete="off" autofocus="true" required pattern=".*\S+.*" title="Please Enter Valid Task" oninvalid="this.setCustomValidity('Enter The Task To Be Completed')"
                     oninput="this.setCustomValidity('')">
                   <div>
                     <button type="submit" name="list" class="btn btn-outline-primary" value='<%=listTitle %>'>ADD</button>
